@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+    {% block content %}
+    <p class="is-size-1" style="text-align: center;">Cart Page</p>
+        {% for i in range(quantity|length) %}
+            <div class="basket">
+                <div class="product-panel">
+                    <img src="{{product_info[i][2]}}" alt="Product Image" class="product-image">
+                    <div class="product-details">
+                        <h3 class="product-name">{{product_info[i][0]}}</h3>
+                        <p class="product-price">Price: £{{product_info[i][1]}}.00</p>
+                        <div class="quantity">
+                            <label for="quantity">Quantity:  {{quantity[i]}}</label>
+                        </div>
+                        <p class="subtotal">Subtotal: £{{product_info[i][1] * quantity[i]}}.00</p>
+                    </div>
+                </div>
+            </div>
+            
+        {% endfor %}
+        <div class="basket">
+            <div class="product-panel">
+                <p class="subtotal">Total Price: £ {{total_price}}</p>
+            </div>
+        </div>
+        
+    {% endblock %}

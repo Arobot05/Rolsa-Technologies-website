@@ -1,0 +1,200 @@
+<!-- This base html which will be a template for each html file I make. The changes I make here will effect other html pages. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>{% block title %}{% endblock %}</title> 
+    <!-- This tage will have the title of that page -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Hotjar Tracking Code for Site 5359962 (name missing) -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:5359962,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+</head>
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <div class="navbar-start">
+                <a class="navbar-item logo-item" href="{{url_for('home')}}">
+                    <img src="{{url_for('static', filename='images/Rolsa_Technologies_logo.png')}}" alt="">
+                </a>
+            </div>
+            <a role="button" class="navbar-burger" id="burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            
+          
+            <div class="navbar-end">
+                <a class="navbar-item" href="{{url_for('home')}}">
+                    Home
+                </a>
+            
+                <a class="navbar-item" href="{{url_for('products')}}">
+                    Products
+                </a>
+
+                <a class="navbar-item" href="{{url_for('educate')}}">
+                    Educate
+                </a>
+            
+                <a class="navbar-item" href="{{url_for('calculate_carbon_footprint')}}">
+                    Calculate
+                </a>
+
+                <a class="navbar-item" href="{{url_for('book')}}">
+                    Book
+                </a>
+            
+                <a class="navbar-item">
+                    About Us
+                </a>
+
+                <a class="navbar-item" href="{{url_for('cart')}}">
+                    <span class="material-symbols-outlined" style="font-size: 30px;">
+                        shopping_cart
+                    </span>
+                </a>
+                  
+                {% if current_user.is_authenticated %}
+                    <a class="navbar-item" href="{{url_for('account')}}">
+                        <span class="material-symbols-outlined" style="font-size: 30px;">
+                            person
+                        </span>
+                    </a>
+
+                    <a class="navbar-item" href="{{url_for('logout')}}">
+                        <span class="material-symbols-outlined" style="font-size: 30px;">
+                            logout
+                        </span>
+                    </a>
+
+                {% else %}
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button" id="sign-in-button" href="{{url_for('sign_in')}}">
+                              <strong>Sign up</strong>
+                            </a>
+                            <a class="button is-light" href="{{url_for('login')}}">
+                              Log in
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+                
+            </div>
+        </div>
+
+    </nav>
+    <hr style="border: 3px solid black; margin-top: 0;">
+
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+        <strong>
+            <p class="is-size-4" id="blink-text">{{message}}</p>
+        </strong>
+        {% endfor %}
+    {% endwith %}
+
+    {% block content %}{% endblock %} 
+    <!-- This tage will have the contents of that page -->
+
+    <br>
+
+
+    <footer class="footer">
+        <img class="footer-img"
+        src="{{url_for('static', filename='images/Rolsa_Technologies_black_logo.png')}}" 
+        alt="">
+    </footer>
+
+
+    <div class="cookies-eu-banner hidden">
+        By clicking ”OK”, you agree to the storing of cookies on your device to
+        enhance site navigation, analyze site usage, and improve marketing.
+        <button>Accept</button>
+    </div>
+    <script>
+        // This is for the nav buger
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+          
+            // Add a click event on each of them
+            $navbarBurgers.forEach( el => {
+              el.addEventListener('click', () => {
+          
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+          
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+          
+              });
+            });
+          
+          });        
+        //This part is for the cookie banner
+          const getCookie = (name) => {
+            const value = " " + document.cookie;
+            console.log("value", `==${value}==`);
+            const parts = value.split(" " + name + "=");
+            return parts.length < 2 ? undefined : parts.pop().split(";").shift();
+          };
+          
+          const setCookie = function (name, value, expiryDays, domain, path, secure) {
+            const exdate = new Date();
+            exdate.setHours(
+              exdate.getHours() +
+                (typeof expiryDays !== "number" ? 365 : expiryDays) * 24
+            );
+            document.cookie =
+              name +
+              "=" +
+              value +
+              ";expires=" +
+              exdate.toUTCString() +
+              ";path=" +
+              (path || "/") +
+              (domain ? ";domain=" + domain : "") +
+              (secure ? ";secure" : "");
+          };
+
+          (() => {
+            const $cookiesBanner = document.querySelector(".cookies-eu-banner");
+            const $cookiesBannerButton = $cookiesBanner.querySelector("button");
+            const cookieName = "cookiesBanner";
+            const hasCookie = getCookie(cookieName);
+                    
+            if (!hasCookie) {
+              $cookiesBanner.classList.remove("hidden");
+            }
+            
+            $cookiesBannerButton.addEventListener("click", () => {
+              setCookie(cookieName, "closed");
+              $cookiesBanner.remove();
+            });
+          })();
+    </script>
+</body>
+</html>

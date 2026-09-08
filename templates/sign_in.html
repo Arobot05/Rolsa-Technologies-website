@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+    {% block title %}
+        Sign In
+    {% endblock %}
+
+    {% block content %}
+        
+        <p class="is-size-1" style="text-align: center;">Sign-up Page</p>
+        <div class="form-design">
+            <form action="{{url_for('sign_in')}}" method="POST">
+
+                <div class="field">
+                    <label class="label" for="name">Name</label>
+                    <input class="input input-design" type="text" id="name" name="name" required>
+                </div>
+                
+                
+                <div class="field">
+                    <div class="control">
+                        <label class="radio label"> Are you a Company?
+                            <input type="radio" name="company" required/>
+                            Yes
+                            <input type="radio" name="company" required/>
+                            No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="email">Email</label>
+                    <input class="input input-design" type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="field">
+                    <label class="label" for="password">Password</label>
+                    <input class="input input-design" type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="field">
+                    <label class="label" for="confirm-password">Confirm Password</label>
+                    <input class="input input-design" type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+            
+
+                <button class="button is-medium is-fullwidth" type="submit">Submit</button>
+
+                <p>Already have an account?<a href="{{url_for('sign_in')}}"><strong>Log In</strong></p></a>
+
+            </form>
+        </div>
+
+    {% endblock %}

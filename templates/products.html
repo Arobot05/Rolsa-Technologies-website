@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+    {% block title %}
+        Products
+    {% endblock %}
+
+    {% block content %}
+        <p class="is-size-1 has-text-centered">The lastest available products</p>
+
+        <div class="card-container">
+            {% for row in rows %}
+                <div class="card" style="width: 300px;">
+                    <form action="{{url_for('add_products_to_cart', id=row[0])}}" method="POST">
+                        <div class="card-image">
+                            <img src="{{row[-1]}}"alt="Placeholder image"/>  
+                        </div>
+
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                  <p class="title is-2">{{row[1]}}</p>
+                                  <p class="subtitle is-3"><strong>£ {{row[3]}}</strong></p>
+                                </div>
+                            </div>
+                        
+                            <div class="content">
+                                {{row[2]}}
+                            </div>
+
+                            <div>
+                                <button type="submit"
+                                class="button is-success is-medium is-fullwidth cart-button">Add to Cart</button>
+                            </div>
+                        </div> 
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endblock %}

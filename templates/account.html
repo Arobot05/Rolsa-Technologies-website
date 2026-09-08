@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+    {% block title %}
+        Account Page
+    {% endblock %}
+
+
+    {% block content %}
+
+        <p class="is-size-1" style="text-align: center;">Hello {{current_user.name}}</p>
+            
+        
+        <div class="temp">
+            <figure class="image is-128x128">
+                <img src="http://openweathermap.org/img/w/{{icon}}.png" alt="">
+            </figure>
+            
+            <p class="is-size-1 ">{{description}}</p>
+            <p class="temp-text is-size-1 has-text-right" style="text-align: center;">{{temperature - 273}}°C</p>
+        </div>
+
+
+        <div class="graph">
+            <p class="is-size-3" style="text-align: center;">Today's Carbon footprint</p>
+            <canvas id="todays-carbon-footprint" style="height: 50vh; width: 50%; margin:auto;"></canvas>
+        </div>
+
+        <div class="graph">
+            <p class="is-size-3" style="text-align: center;">This Week's Carbon footprint</p>
+            <canvas id="week-carbon-footprint"  style="height: 50vh; width: 50%; margin:auto;"></canvas>
+        </div>
+        <script>
+            // This part used from GeekforGeeks
+            const labels = JSON.parse('{{ labels | tojson | safe }}');
+            const chartData = JSON.parse('{{ data | tojson | safe }}');
+            
+            console.lo
+            const data = {
+                labels: labels,
+                datasets: [{
+                    backgroundColor: ["#246EB9", "#AAD922", "#2BD9FE", "#36494E", "#F5F1E3"],
+                    borderColor: ["#246EB9", "#AAD922", "#2BD9FE", "#36494E", "#F5F1E3"],
+                    data: chartData, 
+                }]
+            };
+    
+            const config = {
+                type: 'bar',
+                data: data,
+                options: { plugins: {
+                    legend: {
+                        display: false,
+                    }
+                }} // This part was taken from chart.js website
+            };
+    
+            const myChart = new Chart(
+                document.getElementById('todays-carbon-footprint'),
+                config
+            );
+            // Till here
+
+            const labels_2 = JSON.parse('{{ labels_2 | tojson | safe }}');
+            const chartData_2 = JSON.parse('{{ data_2 | tojson | safe }}');
+            
+            console.lo
+            const data_ = {
+                labels: labels_2,
+                datasets: [{
+                    backgroundColor: ["#E6FAFC", "#C1FBCA", "#9CFC97", "#84D080", "#6BA368", "515B3A", "434C35"],
+                    borderColor: ["#E6FAFC", "#C1FBCA", "#9CFC97", "#84D080", "#6BA368", "515B3A", "434C35"],
+                    data: chartData_2, 
+                }]
+            };
+    
+            const config_ = {
+                type: 'bar',
+                data: data_,
+                options: { plugins: {
+                    legend: {
+                        display: false,
+                    }
+                }} // This part was taken from chart.js website
+            };
+    
+            const myChart_ = new Chart(
+                document.getElementById('week-carbon-footprint'),
+                config_
+            );
+        </script>
+    {% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+    {% block title %}
+        Educate
+    {% endblock %}
+
+    {% block content %}
+        <div id="hero-section">
+            <img src="{{url_for('static', filename='images/Carbon-footprint.jpg')}}" alt="">
+            <div class="overlay-text hero-body" style="background-color: black;">
+                <p class="title is-size-1" style="color: #F4FBDA;">Educate yourself on Carbon footprint</p>
+            </div>
+        </div>
+
+
+        <div class="educate-section-1 content">
+            <h1>Sources of Carbon Footprints</h1>
+            <strong>Here are some of the major activities that contribute to your carbon footprint</strong>
+            
+            <h2>1. Transportation</h2>
+            <p>Walk, Bike, or Use Public Transport: Opt for walking or biking short distances instead of driving. If you can, use public transportation to reduce your carbon impact.Switch to an Electric Vehicle: Electric cars produce fewer emissions compared to traditional gasoline-powered vehicles.Carpool or Ride-Share: Share rides with others to reduce the number of vehicles on the road.</p>
+            
+            <h2>2. Energy Consumption</h2>
+            <p>Switch to Renewable Energy: Choose green energy options from your utility company, or consider installing solar panels or wind turbines to power your home.
+                Use Energy-Efficient Appliances: Replace old appliances with energy-efficient models, such as LED light bulbs and Energy Star-rated appliances.
+                Seal Leaks & Insulate: Ensure your home is well-insulated and seal any air leaks. This reduces the energy needed for heating and cooling.
+                Smart Thermostats: Use a smart thermostat to optimize your home’s heating and cooling systems, saving energy and reducing emissions.</p>
+            
+                    
+            <h2>3. Food</h2>
+            <p> Eat More Plant-Based Foods: Reducing your consumption of meat and dairy can significantly lower your carbon footprint.
+                Buy Local and Seasonal Foods: Local and seasonal foods require less transportation, reducing emissions associated with food delivery.
+                Reduce Food Waste: Plan meals carefully, store food properly, and compost leftovers to minimize food waste.</p>
+                    
+            <h2>4. Waste</h2>
+            <p>Recycle and Compost: Separate recyclables from trash and compost organic waste instead of throwing it away.
+                Buy Less, Reuse More: Avoid single-use plastics and unnecessary packaging. Reuse and repurpose items when you can.</p>
+                    
+            <h2>5. Products</h2>
+            <p> Support Sustainable Products: Choose products made from renewable, recyclable, or biodegradable materials.
+                Consider Eco-Friendly Packaging: Opt for products with minimal packaging, or packaging made from recyclable materials.</p>
+    
+        </div>
+
+        <div class="educate-section-2 content">
+            <h1>How to Reduce Your Carbon Footprint?</h1>
+            <strong>Simple Steps to Reduce Your Carbon Footprint</strong>
+            You don’t need to make drastic changes to start making a difference. Here are some simple steps to help reduce your carbon footprint:
+            
+            <h2>1. Transportation</h2>
+            <p>Walk, Bike, or Use Public Transport: Opt for walking or biking short distances instead of driving. If you can, use public transportation to reduce your carbon impact.
+                Switch to an Electric Vehicle: Electric cars produce fewer emissions compared to traditional gasoline-powered vehicles.
+                Carpool or Ride-Share: Share rides with others to reduce the number of vehicles on the road.</p>
+            
+            <h2>2. Energy Consumption</h2>
+            <p>Switch to Renewable Energy: Choose green energy options from your utility company, or consider installing solar panels or wind turbines to power your home.
+                Use Energy-Efficient Appliances: Replace old appliances with energy-efficient models, such as LED light bulbs and Energy Star-rated appliances.
+                Seal Leaks & Insulate: Ensure your home is well-insulated and seal any air leaks. This reduces the energy needed for heating and cooling.
+                Smart Thermostats: Use a smart thermostat to optimize your home’s heating and cooling systems, saving energy and reducing emissions.</p>
+
+            <h2>3. Food</h2>
+            <p>Eat More Plant-Based Foods: Reducing your consumption of meat and dairy can significantly lower your carbon footprint.
+                Buy Local and Seasonal Foods: Local and seasonal foods require less transportation, reducing emissions associated with food delivery.
+                Reduce Food Waste: Plan meals carefully, store food properly, and compost leftovers to minimize food waste.</p>
+
+            <h2>4. Waste</h2>
+            <p>Recycle and Compost: Separate recyclables from trash and compost organic waste instead of throwing it away.
+                Buy Less, Reuse More: Avoid single-use plastics and unnecessary packaging. Reuse and repurpose items when you can.</p>
+
+            <h2>5. Products</h2>
+            <p>Support Sustainable Products: Choose products made from renewable, recyclable, or biodegradable materials.
+                Consider Eco-Friendly Packaging: Opt for products with minimal packaging, or packaging made from recyclable materials.</p>
+        
+        </div>
+
+        <div class="calculate-section content">
+            <h1> Do you want to Calculate your Carbon footprint</h1>
+            <h2>This is the formula that is used to calculate</h2>
+            <img src="{{url_for('static', filename='images/Calculation-Carbon-footprint.png')}}" alt="">
+            <p>But if you want us to it then <strong>click the button</strong></p>
+            <a href="{{url_for('calculate_carbon_footprint')}}" class="button">Calculate your Carbon footprint</a>
+        </div>
+    {% endblock %}

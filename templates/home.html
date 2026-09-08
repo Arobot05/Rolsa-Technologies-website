@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+    {% block title %}
+        HomeGreen Technology
+    {% endblock %}
+
+    {% block content %}
+
+        <div id="hero-section">
+            <img src="{{url_for('static', filename='images/hero-image-1.png')}}" alt="">
+            <div class="overlay-text hero-body">
+                <p class="title is-size-1" style="color: white;">Empowering a Greener Future</p>
+                <p class="subtitle is-size-2 is-size-4-mobile" style="color: white;">
+                    At Rolsa Technologies, we deliver smart, 
+                    sustainable energy solutions — from solar panel 
+                    installations and EV charging stations to intelligent 
+                    home energy management systems. Join us in building a cleaner, smarter tomorrow.
+                </p>
+            </div>
+        </div>
+
+        <div class="home-section home-section-left">
+            <img class="home-section-img-left"
+            src="{{url_for('static', filename='images/solar-panels-roof.jpg')}}" alt="">
+            
+            <section id="section-text-1" class="section is-medium">
+                <h1 class="title" style="color: white;">🌞 Solar Panel Solutions</h1>
+                <h2 class="subtitle" style="color: white;">
+                    <strong style="color: #ffffff;">Harness the power of the sun.</strong>
+                    Discover cutting-edge solar panel systems designed to reduce 
+                    energy costs and increase efficiency. Whether you're upgrading 
+                    your home or starting fresh, our solar technology is built 
+                    for long-term sustainability.
+                    
+                </h2>
+                <a class="button" href="{{url_for('products')}}" style="color: #3A7D44;">View Products →</a>
+            </section>
+        </div>
+
+        <br>
+
+        <div class="home-section home-section-right">
+            <img class="home-section-img-right"
+            src="{{url_for('static', filename='images/EV-charger.jpg')}}" alt="">
+            <section id="section-text-2" class="section is-medium">
+                <h1 class="title">⚡ EV Charging Stations</h1>
+                <h2 class="subtitle">
+                    <strong>Charge smarter, drive cleaner.</strong>
+                    Power your electric vehicle with reliable, fast-charging 
+                    solutions tailored for home and business use. 
+                    Stay ahead of the curve with our modern and efficient EV infrastructure.
+                </h2>
+                <a class="button home-section-button-right" href="{{url_for('products')}}" 
+                style="color: #45D976;">View Products →</a>
+            </section>
+            
+        </div>
+
+        <br>
+
+        <div class="home-section home-section-left">
+            <img class="home-section-img-left"
+            src="{{url_for('static', filename='images/smart-home-system.jpg')}}" alt="">
+            
+            <section id="section-text-1" class="section is-medium">
+                <h1 class="title" style="color: white;">🏠 Smart Home Energy Systems</h1>
+                <h2 class="subtitle" style="color: white;">
+                    <strong style="color: #ffffff;">Intelligent energy at your fingertips.</strong>
+                    Monitor, manage, and optimize your home’s energy 
+                    use with our smart home solutions. Enjoy seamless integration, 
+                    real-time tracking, and enhanced control over your carbon footprint.
+                </h2>
+                <a class="button" href="{{url_for('products')}}" style="color: #3A7D44;">View Products →</a>
+            </section>
+        </div>
+
+        <br>
+
+        <p class="is-size-1 has-text-centered">Our Clients</p>
+
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128	
+                    " src="{{url_for('static', filename='images/coco-cola.png')}}" 
+                    alt="">
+                </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <img class="image is-128x128	
+                    " src="{{url_for('static', filename='images/hyundai.png')}}" 
+                    alt="">
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <img class="image is-128x128	
+                    " src="{{url_for('static', filename='images/apple.png')}}" 
+                    alt="">
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <img class="image is-128x128	
+                    " src="{{url_for('static', filename='images/saudi-eletricity.png')}}" 
+                    alt="">
+              </div>
+            </div>
+        </nav>
+
+    
+    {% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+    {% block title %}
+        Booking
+    {% endblock %}
+
+    {% block content %}
+
+        <p class="is-size-1" style="text-align: center;">Booking Page</p>
+        <div class="form-design">
+            <form action="{{url_for('book')}}" method="POST">
+
+                <div class="field">
+                    <div class="control">
+                        <label class="radio label"> Choose a option: 
+                            <input type="radio" name="option" value="Maintenance" required/>
+                            Maintenance
+                            <input type="radio" name="option" value="Installment" required/>
+                            Installment
+                            <input type="radio" name="option"  value="Meeting" required/>
+                            Meeting
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="date">Choose date</label>
+                    <input class="input input-design" type="date" id="date" name="date" required>
+                </div>
+                
+                <div class="field">
+                    <label class="label" for="start-time">Start time</label>
+                    <input class="input input-design" type="time" id="start-time" name="start-time" required>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="end-time">end time</label>
+                    <input class="input input-design" type="time" id="end-time" name="end-time" required>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="message">Let us know if you have any specific requests or preferences</label>
+                    <textarea class="textarea input-design" type="message" id="message" name="message" cols="30" rows="5"></textarea>
+                </div>
+
+
+                <button class="button is-medium is-fullwidth" type="submit">Submit</button>
+
+
+            </form>
+        </div>
+        <script>
+            <!-- This restricts users from clicking the dates have already passed -->
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').setAttribute('min', today);
+        </script>
+    {% endblock %}

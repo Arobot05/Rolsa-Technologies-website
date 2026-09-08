@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+    {% block title %}
+        Carbon footprint Calculator
+    {% endblock %}
+
+    {% block content %}
+        <div class="calculate-section content">
+            <h1>This is Carbon footprint calculator page </h1>
+            <h2>This is the formula that is used to calculate</h2>
+            <img src="{{url_for('static', filename='images/Calculation-Carbon-footprint.png')}}" alt="">
+        </div>
+        <div class="carbon-footprint-form">
+            <form action="{{url_for('calculate_carbon_footprint')}}" method="POST">
+                <strong>
+                <label for="electricity">Electricity: </label>
+                <input type="number" name="electricity" id="electricity" min="100" value="100"> per kWh
+
+                <br>
+                <br>
+
+                <label for="gas">Gas: </label>
+                <input type="number" name="gas" id="gas" min="100" value="100"> per kWh
+
+                <br>
+                <br>
+
+                <label for="water">Water: </label>
+                <input type="number" name="water" id="water" min="100" value="100"> per cubic metre
+
+                <br>
+                <br>
+
+                <label for="car-travel">Car travel: </label>
+                <input type="number" name="car-travel" id="car-travel" min="100" value="100"> per KM
+
+                <br>
+                <br>
+
+                <label for="air-travel">Air travel: </label>
+                <input type="number" name="air-travel" id="air-travel" min="100" value="100"> per pkm
+                </strong>
+
+                <br>
+                <br>
+
+                <button type="submit" class="button">Calculate</button>
+            </form>
+        </div>
+        <div class="graph">
+            <div style="height: 50vh; width: 50%; margin: auto;">
+                <canvas id="todays-carbon-footprint"></canvas>
+            </div>
+
+            {% if values_sent == True %}
+                <form action="{{url_for('save_calculations')}}" method="POST">
+                    <button type="submit" class="button">Save your Carbon footprint</button>
+                </form>
+            {% endif %}
+        </div>
+
+        <script>
+        // This part used from GeekforGeeks
+        const labels = JSON.parse('{{ labels | tojson | safe }}');
+        const chartData = JSON.parse('{{ data | tojson | safe }}');
+        
+        console.lo
+        const data = {
+            labels: labels,
+            datasets: [{
+                backgroundColor: ["#246EB9", "#AAD922", "#2BD9FE", "#36494E", "#F5F1E3"],
+                borderColor: ["#246EB9", "#AAD922", "#2BD9FE", "#36494E", "#F5F1E3"],
+                data: chartData, 
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: { plugins: {
+                legend: {
+                    display: false,
+                }
+            }} // This part was taken from chart.js website
+        };
+
+        const myChart = new Chart(
+            document.getElementById('todays-carbon-footprint'),
+            config
+        );
+        // Till here
+    </script>
+    {% endblock %}
