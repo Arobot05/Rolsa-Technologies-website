@@ -1,0 +1,381 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+
+/* This area where we import libraries to for the styling */
+
+
+/* The styling for navbar starts here */
+
+.navbar-item img {
+    max-height: none;
+    height: 100px;
+}
+
+.logo-item {
+    left: 60px;
+}
+
+#burger {
+    color: #3A7D44;
+}
+
+#burger:hover {
+    color: aliceblue;
+    background-color: #3A7D44;
+}
+
+#sign-in-button {
+    background-color: #45D976;
+    color: #181D27;
+}
+
+#sign-in-button:hover {
+    transition: 90ms ease-in-out;
+    background-color: #3A7D44;
+    color: white;
+}
+
+hr {
+    margin: 10px;
+}
+
+/* The styling for navbar ends here */
+
+/* The styling for footer starts here */
+.footer {
+    background-color: #322f30;
+}
+
+.footer-img {
+    width: 30%;
+}
+
+.footer p {
+    display: inline;
+    width: fit-content;
+}
+
+/* The styling for footer ends here */
+
+/* The styling for home page start here */
+
+#hero-section img {
+    height: 80%;
+    width: auto;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 25%;
+    margin: auto;
+    color: #ffffff; 
+    padding: 10px 20px;  
+    text-align: center;
+}
+
+.home-section {
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #181D27;
+    overflow: hidden;
+}
+
+
+.home-section-left {
+    background-color: #3A7D44;
+    flex-direction: row;
+}
+
+.home-section-right {
+    background-color: #45D976;
+    flex-direction: row-reverse;
+    
+}
+
+.home-section-img-left,
+.home-section-img-right {
+    width: 50%;
+    height: auto;
+}
+
+.home-section-button-right {
+    float: right;
+    background-color: #181D27;
+}
+
+.home-section-button-right:hover {
+    background-color: #181d27c5;
+}
+
+/* The styling for home page end here */
+
+
+/* The styling for product page starts here */
+/* The styling for the card starts here */
+
+.card-container {
+    margin: auto 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: center;
+    gap: 60px;
+}
+
+.card {
+    max-width: 300px;
+    left: 2%;
+    right: 2%;
+    display: inline-block;
+    margin: 40px;
+}
+
+.card-image img {
+    max-height: 250px;
+    width: 100%;
+}
+
+.is-success {
+    background-color: #45D976;
+}
+
+.cart-button{
+    margin-top: 20px;
+}
+/* The styling for the card ends here */
+/* The styling for product page ends here */
+
+/* The styling for educate page starts here */
+.educate-section-1 {
+    background-color: #3A7D44;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #181D27;
+}
+
+.educate-section-1 h1, .educate-section-1 h2,
+.educate-section-1 strong{
+    color: #ffffff;
+}
+.educate-section-2 {
+    background-color: #45D976;
+    padding: 20px;
+    text-align: right;
+    color: #322f30;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #181D27;
+}
+
+.educate-section-2 h1, .educate-section-2 h2,
+.educate-section-2 strong{
+    color: #322f30;
+}
+
+.calculate-section {
+    text-align: center;
+}
+/* The styling for educate page ends here */
+
+/* The styling for calculate page starts here */
+
+.carbon-footprint-form {
+    text-align: center;
+    background-color: #45D976;
+    width: 700px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #181D27;
+}
+
+.carbon-footprint-form input {
+    width: 100px;
+}
+
+.carbon-footprint-form .button {
+    background-color: #322f30;
+    color: #ffffff;
+}
+
+.carbon-footprint-form .button:hover {
+    background-color: #181D27;
+    color: #45D976;
+}
+
+.graph {
+    text-align: center;
+}
+/* The styling for calculate page ends here */
+
+/* The styling for Cart page starts here */
+
+.basket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.product-panel {
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.product-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.product-price, .subtotal {
+    font-size: 1em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+}
+
+.quantity label {
+    margin-right: 10px;
+    font-size: 1em;
+}
+
+.quantity input {
+    width: 50px;
+    padding: 5px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.subtotal {
+    font-weight: bold;
+}
+/* The styling for Cart page ends here */
+
+/* This design is used in booking page, login page, sign in page  */
+
+.form-design {
+    background-color: #45D976;
+    width: 400px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 250px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #181D27;
+}
+
+.input-design {
+    background-color: #322f30;
+    color: #ffffff;
+}
+
+/* This end of the design  */
+
+/* The styling for Account page starts here */
+
+.temp {
+    background-color: floralwhite;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #181D27;
+}
+
+.graph {
+    background-color: #e6e6e6;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #181D27;
+}
+/* The styling for Account page ends here */
+
+
+/* This styling is used for flashed messages */
+
+#blink-text {
+    animation: blink;
+    text-align: center;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+}
+
+@keyframes blink {
+    0%{color: #181D27;}
+    50%{color: #ffffff;}
+    100%{color: #181D27;}
+}
+
+/* This styling for cookie banner  */
+
+.cookies-eu-banner {
+    background: #444;
+    color: #fff;
+    padding: 6px;
+    font-size: 13px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+  
+.cookies-eu-banner button {
+  text-decoration: none;
+  background: #222;
+  color: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+  padding: 4px 7px;
+  margin: 2px 0;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.07s, color 0.07s, border-color 0.07s;
+}
+
+.cookies-eu-banner button:hover {
+  background: #fff;
+  color: #222;
+}
+.hidden {
+    display: none;
+  }
